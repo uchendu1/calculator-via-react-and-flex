@@ -24,8 +24,16 @@ handleEqual = () => {
   this.setState({input: math.evaluate(this.state.input)})
 }
 
+handleSqrt = () =>{
+  this.setState({input: Math.sqrt(this.state.input)})
+  
+
+
+}
+
   render() {
     return (
+
       <div className="app">
         <div className='calc-wrapper'>
           <Input input={this.state.input} />
@@ -61,14 +69,14 @@ handleEqual = () => {
           </div>
 
           <div className='row'>
-            <Button>sqrt</Button>
+            <Button handleClick={this.handleSqrt}>sqrt</Button>
             <Button>power2</Button>
             <Button handleClick={this.addToInput}>(</Button>
             <Button handleClick={this.addToInput}>)</Button>
 
           </div>
           <div className='row'>
-          <ClearButton handleClear={()=>this.setState({input: ""})}>spacebar</ClearButton>
+          <ClearButton >spacebar</ClearButton>
           </div>
 
           <div className='row'>
