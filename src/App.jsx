@@ -3,6 +3,8 @@ import './App.css';
 import { Button } from './components/button/Button';
 import { Input } from './components/input/Input';
 import { ClearButton } from './components/clearButton/ClearButton';
+import { SpaceBar } from './components/spacebar/SpaceBar';
+
 import * as math from 'mathjs';
 
 
@@ -12,7 +14,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ""
+      input: "",
     };
   }
 
@@ -20,16 +22,26 @@ addToInput = val => {
   this.setState({ input: this.state.input + val});
 };
 
+removeFromInput = val => {
+
+  this.setState({input: this.state.input -val});
+}
+
 handleEqual = () => {
+  
   this.setState({input: math.evaluate(this.state.input)})
 }
 
 handleSqrt = () =>{
-  this.setState({input: Math.sqrt(this.state.input)})
+
+  this.setState({input: Math.sqrt(math.evaluate(this.state.input))})
+
+  }
+
+  handlePower = (value) => {
+    this.setState({input: Math.pow(math.evaluate(this.state.input, value))})
+  }
   
-
-
-}
 
   render() {
     return (
@@ -70,13 +82,13 @@ handleSqrt = () =>{
 
           <div className='row'>
             <Button handleClick={this.handleSqrt}>sqrt</Button>
-            <Button>power2</Button>
+            <Button handleClick = { this.handlePower}>power</Button>
             <Button handleClick={this.addToInput}>(</Button>
             <Button handleClick={this.addToInput}>)</Button>
 
           </div>
           <div className='row'>
-          <ClearButton >spacebar</ClearButton>
+          <SpaceBar handleClear={this.removeFromInput}>spacebar</SpaceBar>
           </div>
 
           <div className='row'>
