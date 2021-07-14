@@ -61,8 +61,18 @@ handleEqual = () => {
           </div>
 
           <div className='row'>
-          <ClearButton handleClear={()=>this.setState({input: ""})}>Clear</ClearButton>
+            <Button>sqrt</Button>
+            <Button>power2</Button>
+            <Button handleClick={this.addToInput}>(</Button>
+            <Button handleClick={this.addToInput}>)</Button>
 
+          </div>
+          <div className='row'>
+          <ClearButton handleClear={()=>this.setState({input: ""})}>spacebar</ClearButton>
+          </div>
+
+          <div className='row'>
+          <ClearButton handleClear={()=>this.setState({input: ""})}>Clear</ClearButton>
           </div>
         </div>
       </div>
