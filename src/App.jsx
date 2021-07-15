@@ -38,7 +38,11 @@ handleSqrt = () =>{
 
   }
 
+
   handlePower = () => {
+
+        // this.setState({input: math.evaluate(this.state.input)^2})  
+
     this.setState({input: math.evaluate((this.state.input) * (this.state.input))})  
 
   }
@@ -89,7 +93,7 @@ handleSqrt = () =>{
 
           </div>
           <div className='row'>
-          <SpaceBar handleSpaceBar={this.removeFromInput}>spacebar</SpaceBar>
+          <SpaceBar handleSpaceBar={()=>this.setState({input: ""})}>spacebar</SpaceBar>
           </div>
 
           <div className='row'>
