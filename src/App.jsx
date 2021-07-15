@@ -18,17 +18,17 @@ class App extends Component {
     };
   }
 
+
 addToInput = val => {
   this.setState({ input: this.state.input + val});
 };
 
-// removeFromInput = val => {
+removeFromInput = val => {
 
-//   this.setState({input: this.state.input -val});
-// }
+  this.setState({input: this.state.input - val});
+} 
 
 handleEqual = () => {
-  
   this.setState({input: math.evaluate(this.state.input)})
 }
 
@@ -38,8 +38,9 @@ handleSqrt = () =>{
 
   }
 
-  handlePower = (value) => {
-    this.setState({input: Math.pow(math.evaluate(this.state.input, value))})
+  handlePower = () => {
+    this.setState({input: math.evaluate((this.state.input) * (this.state.input))})  
+
   }
   
 
@@ -82,13 +83,13 @@ handleSqrt = () =>{
 
           <div className='row'>
             <Button handleClick={this.handleSqrt}>sqrt</Button>
-            <Button handleClick = { this.handlePower}>^</Button>
+            <Button handleClick = { this.handlePower}>X^2</Button>
             <Button handleClick={this.addToInput}>(</Button>
             <Button handleClick={this.addToInput}>)</Button>
 
           </div>
           <div className='row'>
-          <SpaceBar handleSpaceBar={()=>this.setState({input: ""})}>spacebar</SpaceBar>
+          <SpaceBar handleSpaceBar={this.removeFromInput}>spacebar</SpaceBar>
           </div>
 
           <div className='row'>
