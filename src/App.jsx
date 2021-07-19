@@ -24,15 +24,15 @@ addToInput = val => {
 };
 
 removeFromInput = val => {
-
-  this.setState({input: this.state.input - val});
+var currentState = (this.state.input);
+  this.setState({input: currentState - val});
 } 
 
 handleEqual = () => {
   this.setState({input: math.evaluate(this.state.input)})
 }
 
-handleSqrt = () =>{
+handleSqrt = () => {
 
   this.setState({input: Math.sqrt(math.evaluate(this.state.input))})
 
@@ -40,10 +40,7 @@ handleSqrt = () =>{
 
 
   handlePower = () => {
-
-        // this.setState({input: math.evaluate(this.state.input)^2})  
-
-    this.setState({input: math.evaluate((this.state.input) * (this.state.input))})  
+    this.setState({input: math.pow(math.evaluate(this.state.input), 2) }) 
 
   }
   
@@ -87,13 +84,13 @@ handleSqrt = () =>{
 
           <div className='row'>
             <Button handleClick={this.handleSqrt}>sqrt</Button>
-            <Button handleClick = { this.handlePower}>X^2</Button>
+            <Button handleClick={this.handlePower}>X^2</Button>
             <Button handleClick={this.addToInput}>(</Button>
             <Button handleClick={this.addToInput}>)</Button>
 
           </div>
           <div className='row'>
-          <SpaceBar handleSpaceBar={()=>this.setState({input: ""})}>spacebar</SpaceBar>
+          <SpaceBar handleSpaceBar={this.removeFromInput}>spacebar</SpaceBar>
           </div>
 
           <div className='row'>
