@@ -23,9 +23,11 @@ addToInput = val => {
   this.setState({ input: this.state.input + val});
 };
 
-removeFromInput = val => {
+removeFromInput = () => {
+  // console.log(parseInt("1"))
 var currentState = (this.state.input);
-  this.setState({input: currentState - val});
+const newInput = currentState.slice(0,-1)
+  this.setState({input: newInput });
 } 
 
 handleEqual = () => {
@@ -38,7 +40,7 @@ handleSqrt = () => {
 
   }
 
-
+ls
   handlePower = () => {
     this.setState({input: math.pow(math.evaluate(this.state.input), 2) }) 
 
