@@ -16,8 +16,15 @@ class App extends Component {
     this.state = {
       input: "",
     };
+
+    // this.addToInput = this.addToInput.bind(this)
+    // no need to bind cos the func is an arrow func.
   }
 
+  // addToInput(){
+
+  // }
+  // then the above way will b d way to write the func.ie arrow func saves from writing lots of codes.
 
 addToInput = val => {
   this.setState({ input: this.state.input + val});
@@ -40,7 +47,7 @@ handleSqrt = () => {
 
   }
 
-ls
+
   handlePower = () => {
     this.setState({input: math.pow(math.evaluate(this.state.input), 2) }) 
 
